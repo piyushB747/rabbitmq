@@ -1,6 +1,5 @@
 package net.kanth.control;
 
-
 import net.kanth.dto.PayloadCreation;
 import net.kanth.service.ServiceCreation;
 import org.springframework.http.HttpStatus;
@@ -12,18 +11,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/apicreation")
-public class ControlUserCreated {
-
+@RequestMapping("/apiorderplaced")
+public class ControlOrderPublished {
     private ServiceCreation serviceCreation;
 
-    public ControlUserCreated(ServiceCreation serviceCreation) {
+    public ControlOrderPublished(ServiceCreation serviceCreation) {
         this.serviceCreation = serviceCreation;
     }
 
     @GetMapping
     public ResponseEntity<?> createuser(@RequestBody PayloadCreation user){
-        return new ResponseEntity<>(serviceCreation.creationUser(user), HttpStatus.CREATED);
+        return new ResponseEntity<>(serviceCreation.crationorder(user), HttpStatus.CREATED);
     }
 
 }
